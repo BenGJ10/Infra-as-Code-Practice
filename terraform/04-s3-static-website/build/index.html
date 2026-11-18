@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1d">
+  <meta name="description" content="Ben Gregory John — Backend Systems Engineer focused on scalable backend systems, AWS cloud services, and cloud-native applications.">
+  <title>Ben Gregory John | Backend Systems Engineer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080d1d;
+      --bg-soft: #0d1530;
+      --panel: rgba(18, 28, 57, .82);
+      --panel-strong: #111c39;
+      --line: rgba(174, 190, 255, .13);
+      --text: #f5f7ff;
+      --muted: #a8b3d0;
+      --subtle: #7583a7;
+      --accent: #818cf8;
+      --accent-2: #a5b4fc;
+      --cyan: #67e8f9;
+      --white: #fff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 12% 4%, rgba(49, 64, 143, .28), transparent 34rem),
+        radial-gradient(ellipse at 92% 28%, rgba(79, 70, 229, .16), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; }
+    .shell { width: min(1120px, calc(100% - 40px)); margin: 0 auto; padding: 34px 0 28px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-bottom: 24px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-weight: 750; letter-spacing: -.03em; }
+    .brand-mark { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 12px; background: linear-gradient(140deg, #6366f1, #312e81); box-shadow: 0 8px 24px rgba(99,102,241,.3); font-size: 14px; }
+    .nav { display: flex; align-items: center; gap: 25px; color: var(--muted); font-size: 13px; }
+    .nav a { transition: color .2s ease; }
+    .nav a:hover { color: var(--white); }
+    .availability { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(74,222,128,.22); border-radius: 999px; padding: 8px 12px; color: #bbf7d0; background: rgba(34,197,94,.07); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .availability:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 12px #4ade80; }
+    .grid { display: grid; grid-template-columns: 1.25fr .85fr .85fr; gap: 14px; }
+    .card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: linear-gradient(145deg, rgba(20,31,63,.94), rgba(12,20,43,.92)); box-shadow: var(--shadow); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .card:hover { transform: translateY(-4px); border-color: rgba(165,180,252,.36); box-shadow: 0 28px 75px rgba(0,0,0,.32), 0 0 0 1px rgba(129,140,248,.05); }
+    .hero { grid-column: span 2; min-height: 300px; padding: 34px; display: flex; flex-direction: column; justify-content: space-between; }
+    .hero:after { content: ""; position: absolute; width: 330px; height: 330px; border-radius: 50%; right: -100px; top: -150px; background: radial-gradient(circle, rgba(99,102,241,.24), transparent 68%); pointer-events: none; }
+    .eyebrow { color: var(--accent-2); font-size: 10px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1 { margin: 17px 0 5px; font-size: clamp(38px, 5.5vw, 62px); line-height: 1.02; letter-spacing: -.065em; }
+    .role { margin: 0; color: #c7d2fe; font-size: 17px; font-weight: 650; }
+    .intro { max-width: 610px; margin: 18px 0 0; color: var(--muted); font-size: 14px; }
+    .hero-bottom { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 28px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; border: 1px solid transparent; border-radius: 12px; padding: 11px 15px; font-size: 12px; font-weight: 750; transition: .2s ease; }
+    .button-primary { color: #0b1025; background: linear-gradient(120deg, #c7d2fe, #818cf8); box-shadow: 0 8px 24px rgba(99,102,241,.2); }
+    .button-primary:hover { transform: translateY(-2px); filter: brightness(1.08); }
+    .button-ghost { color: var(--text); border-color: var(--line); background: rgba(255,255,255,.025); }
+    .button-ghost:hover { background: rgba(129,140,248,.12); border-color: rgba(165,180,252,.4); }
+    .side-card { min-height: 300px; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(155deg, #242d68, #111a3b 72%); }
+    .orb { align-self: flex-end; display: grid; place-items: center; width: 76px; height: 76px; border: 1px solid rgba(199,210,254,.2); border-radius: 24px; color: #c7d2fe; background: rgba(165,180,252,.09); font-size: 27px; }
+    .side-card h2 { margin: 0; font-size: 23px; line-height: 1.15; letter-spacing: -.045em; }
+    .side-card p { margin: 9px 0 0; color: #c1c9e5; font-size: 12px; }
+    .section-card { padding: 25px; }
+    .about { grid-column: span 2; }
+    .section-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 17px; }
+    h2.section-title { margin: 0; font-size: 12px; letter-spacing: .13em; text-transform: uppercase; color: #dbe2ff; }
+    .section-kicker { color: var(--subtle); font-size: 10px; }
+    .about-copy { max-width: 700px; margin: 0; color: var(--muted); font-size: 13px; line-height: 1.85; }
+    .focus-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
+    .tag { border: 1px solid rgba(165,180,252,.16); border-radius: 999px; padding: 6px 10px; color: #c7d2fe; background: rgba(99,102,241,.09); font-size: 10px; font-weight: 650; }
+    .socials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .social-link { display: flex; align-items: center; gap: 11px; min-height: 63px; padding: 12px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); transition: .2s ease; }
+    .social-link:hover { transform: translateY(-3px); border-color: rgba(165,180,252,.4); background: rgba(99,102,241,.1); }
+    .social-icon { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; color: #c7d2fe; background: rgba(129,140,248,.13); }
+    .social-icon svg { width: 17px; height: 17px; fill: currentColor; }
+    .social-label { display: block; font-size: 11px; font-weight: 750; }
+    .social-handle { display: block; color: var(--subtle); font-size: 9px; }
+    .certs { grid-column: span 3; }
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
+    .cert { display: flex; align-items: center; gap: 13px; min-height: 100px; padding: 15px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); transition: .2s ease; }
+    .cert:hover { transform: translateY(-3px); border-color: rgba(103,232,249,.35); background: rgba(99,102,241,.08); }
+    .cert-badge { flex: 0 0 52px; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 15px; color: #fbbf24; background: radial-gradient(circle at 30% 20%, rgba(251,191,36,.22), rgba(99,102,241,.13)); border: 1px solid rgba(251,191,36,.22); }
+    .cert-badge svg { width: 32px; height: 32px; }
+    .cert-name { margin: 0; font-size: 11px; line-height: 1.45; font-weight: 750; }
+    .cert-meta { margin: 5px 0 0; color: var(--subtle); font-size: 9px; }
+    .bottom { grid-column: span 3; display: flex; justify-content: space-between; align-items: center; padding: 4px 3px 0; color: var(--subtle); font-size: 10px; }
+    .bottom a { color: #c7d2fe; }
+    .bottom a:hover { color: var(--cyan); }
+    .mail-card { grid-column: span 3; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 25px; background: linear-gradient(105deg, #3730a3, #1e3a8a 60%, #172554); }
+    .mail-card h2 { margin: 0; font-size: 19px; letter-spacing: -.04em; }
+    .mail-card p { margin: 3px 0 0; color: #dbeafe; font-size: 11px; }
+    .mail-card .button { color: #111827; background: #fff; white-space: nowrap; }
+    .mail-card .button:hover { transform: translateY(-2px); background: #e0e7ff; }
+    @media (max-width: 760px) {
+      .shell { width: min(100% - 26px, 560px); padding-top: 20px; }
+      .nav { display: none; }
+      .grid { grid-template-columns: 1fr 1fr; gap: 11px; }
+      .hero { grid-column: span 2; padding: 25px; min-height: 310px; }
+      .side-card { grid-column: span 2; min-height: 180px; }
+      .about { grid-column: span 2; }
+      .socials { grid-column: span 2; }
+      .certs, .mail-card, .bottom { grid-column: span 2; }
+      .cert-grid { grid-template-columns: 1fr; }
+      .cert { min-height: 82px; }
+    }
+    @media (max-width: 420px) {
+      .availability { font-size: 9px; padding: 7px 9px; }
+      .hero-bottom { align-items: stretch; }
+      .hero-bottom .button { flex: 1; }
+      .socials { grid-template-columns: 1fr; }
+      .mail-card { align-items: flex-start; flex-direction: column; }
+      .bottom { flex-direction: column; align-items: flex-start; gap: 5px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ben Gregory John home">
+        <span class="brand-mark">BG</span><span>Ben Gregory John</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#about">About</a><a href="#certifications">Certifications</a><a href="#connect">Connect</a>
+      </nav>
+      <span class="availability">Open to opportunities</span>
+    </header>
+
+    <div class="grid">
+      <section class="card hero">
+        <div>
+          <div class="eyebrow">Backend systems · Cloud-native engineering</div>
+          <h1>BEN GREGORY<br>JOHN<span style="color:#818cf8">.</span></h1>
+          <p class="role">Backend Systems Engineer</p>
+          <p class="intro">Building scalable, secure, and production-ready backend systems with a focus on cloud architecture, distributed systems, and reliable engineering.</p>
+        </div>
+        <div class="hero-bottom">
+          <a class="button button-primary" href="mailto:bengregoryjohn2005@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
+          <a class="button button-ghost" href="https://bengregoryjohn.in" target="_blank" rel="noopener noreferrer">Visit website <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+
+      <aside class="card side-card">
+        <div class="orb" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 17.5 9.5 12l3 3L20 7.5"/><path d="M14 7.5h6v6"/></svg>
+        </div>
+        <div>
+          <div class="eyebrow">Core focus</div>
+          <h2>Backend systems.<br>Cloud engineering.</h2>
+          <p>Thoughtful architecture. Reliable delivery. Continuous learning.</p>
+        </div>
+      </aside>
+
+      <section class="card section-card about" id="about">
+        <div class="section-head">
+          <h2 class="section-title">About me</h2>
+          <span class="section-kicker">01 / Profile</span>
+        </div>
+        <p class="about-copy">I'm a third-year B.Tech Computer Science and Engineering student at Lovely Professional University with a strong passion for building scalable, production-ready backend systems and cloud-native applications. My core strengths lie in Backend Development, AWS Cloud Services (3x AWS Certified), System Design, and Data Structures &amp; Algorithms, with hands-on experience designing secure, efficient, and maintainable systems.<br><br>I actively explore Cloud Architecture, DevOps practices, Distributed Systems, and scalable system design, while continuously strengthening my problem-solving skills through LeetCode and real-world projects. I'm always open to connecting with professionals, mentors, and organizations where I can contribute, learn, and grow.</p>
+        <div class="focus-tags">
+          <span class="tag">Backend Systems</span><span class="tag">Cloud &amp; DevOps</span><span class="tag">AWS</span><span class="tag">System Design</span><span class="tag">Distributed Systems</span><span class="tag">Data Structures &amp; Algorithms</span>
+        </div>
+      </section>
+
+      <section class="card section-card" id="connect">
+        <div class="section-head">
+          <h2 class="section-title">Find me online</h2>
+          <span class="section-kicker">02 / Links</span>
+        </div>
+        <div class="socials">
+          <a class="social-link" href="https://www.linkedin.com/in/bengj10/" target="_blank" rel="noopener noreferrer">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.44c.98 0 1.79-.77 1.79-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg></span>
+            <span><span class="social-label">LinkedIn</span><span class="social-handle">/in/bengj10</span></span>
+          </a>
+          <a class="social-link" href="https://github.com/BenGJ10" target="_blank" rel="noopener noreferrer">
+            <span class="social-icon"><svg viewBox="0 0 24 24"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.47-.28-5.07-1.23-5.07-5.49 0-1.21.43-2.2 1.15-2.98-.12-.28-.5-1.41.11-2.94 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.27-2.6 5.2-5.08 5.48.4.35.75 1.02.75 2.06V22c0 .29.2.63.76.52A11.1 11.1 0 0 0 12 .9Z"/></svg></span>
+            <span><span class="social-label">GitHub</span><span class="social-handle">/BenGJ10</span></span>
+          </a>
+          <a class="social-link" href="https://bengregoryjohn.in" target="_blank" rel="noopener noreferrer">
+            <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></span>
+            <span><span class="social-label">Portfolio</span><span class="social-handle">bengregoryjohn.in</span></span>
+          </a>
+          <a class="social-link" href="mailto:bengregoryjohn2005@gmail.com">
+            <span class="social-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+            <span><span class="social-label">Email</span><span class="social-handle">Let's connect</span></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="card section-card certs" id="certifications">
+        <div class="section-head">
+          <h2 class="section-title">AWS certifications</h2>
+          <span class="section-kicker">03 / Three certifications</span>
+        </div>
+        <div class="cert-grid">
+          <article class="cert">
+            <span class="cert-badge" aria-label="AWS certification badge">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 3 39 11.5v17L24 37 9 28.5v-17L24 3Z" stroke="currentColor" stroke-width="1.8"/><path d="m16 18 8-4 8 4v9l-8 5-8-5v-9Z" stroke="currentColor" stroke-width="1.5"/><path d="m18 23 4 3 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><h3 class="cert-name">AWS Certified Developer – Associate</h3><p class="cert-meta">DVA-C02 · February 2026</p></div>
+          </article>
+          <article class="cert">
+            <span class="cert-badge" aria-label="AWS certification badge">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 3 39 11.5v17L24 37 9 28.5v-17L24 3Z" stroke="currentColor" stroke-width="1.8"/><path d="M24 12 27 20l8 1-6 5 2 8-7-4-7 4 2-8-6-5 8-1 3-8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </span>
+            <div><h3 class="cert-name">AWS Certified Solutions Architect – Associate</h3><p class="cert-meta">SAA-C03 · December 2025</p></div>
+          </article>
+          <article class="cert">
+            <span class="cert-badge" aria-label="AWS certification badge">
+              <svg viewBox="0 0 48 48" fill="none"><path d="M24 3 39 11.5v17L24 37 9 28.5v-17L24 3Z" stroke="currentColor" stroke-width="1.8"/><circle cx="24" cy="22" r="8" stroke="currentColor" stroke-width="1.6"/><path d="m20 22 3 3 5-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <div><h3 class="cert-name">AWS Certified Cloud Practitioner</h3><p class="cert-meta">CLF-C02 · August 2025</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card mail-card">
+        <div><h2>Have an opportunity or idea?</h2><p>I'm always happy to connect, collaborate, and learn.</p></div>
+        <a class="button" href="mailto:bengregoryjohn2005@gmail.com">Let's talk <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <footer class="bottom">
+        <span>© <span id="year"></span> Ben Gregory John. Built with care.</span>
+        <a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'}); return false;">Back to top ↑</a>
+      </footer>
+    </div>
+  </main>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
