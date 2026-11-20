@@ -1,0 +1,7 @@
+users:
+  - username: john
+    roles: [readOnly, developer]
+  - username: jane
+    roles: [admin, auditor]
+  - username: alice
+    roles: [readOnly]
